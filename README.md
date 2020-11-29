@@ -1,3 +1,2 @@
 TodoList 
-React / Redux
-bootstrap
+React / Redux / bootstrap
