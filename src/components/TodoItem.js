@@ -1,12 +1,28 @@
 import React from "react";
 
-const TodoItem = (props) => {
+const TodoItem = ({ todo, deleteTodo, toogleTodo }) => {
   return (
-    <li className="list-group-item d-flex flex-row justify-content-between align-items-center list-group">
-      <span>x</span>
+    <li
+      onClick={toogleTodo}
+      className="list-group-item d-flex flex-row justify-content-between align-items-center list-group"
+    >
+      <span>{todo.name}</span>
       <span>
-        <input type="checkbox" className="mx-3" />
-        <button className="btn btn-sm btn-danger">delete</button>
+        <input
+          type="checkbox"
+          checked={todo.done}
+          onChange={() => {}} //onchange vide pour retirer l'erreur en console
+          className="mx-3"
+        />
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            deleteTodo();
+          }}
+          className="btn btn-sm btn-danger"
+        >
+          delete
+        </button>
       </span>
     </li>
   );
